@@ -1,0 +1,114 @@
+<% include ./partials/header %>
+<!-- NEED TO MAKE SURE ALL OF THE NAMING IS CORRECT FOR DATABASE PUSH -->
+<div class="ui main text container segment">
+    <div class="ui huge header">New Employee</div>
+    <form class="ui form" action="/employees" method="POST">
+        <div class="field">
+            <label>Name</label>
+            <input type="text" name="employee[name]" placeholder="Name">
+        </div>
+        <h3 class="ui dividing header">Positions They Can Work</h3>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][bottle]">
+                  <label>Bottle</label>
+                </div>
+        </div>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][bartender]" >
+                  <label>Bartender</label>
+                </div>
+        </div>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][headBartender]">
+                  <label>Head Bartender</label>
+                </div>
+        </div>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][opener]">
+                  <label>Opener</label>
+                </div>
+        </div>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][door]">
+                  <label>Door</label>
+                </div>
+        </div>
+        <div class="inline field">
+                <div class="ui checkbox">
+                  <input type="checkbox" name="employee[positions][manager]">
+                  <label>Manager</label>
+                </div>
+        </div>
+        <h3 class="ui dividing header">Availability</h3>
+        <% let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]; %>
+        <% for(let day=0; day<weekdays.length; day++){ %>
+        <div class="fields">
+            <div class="field">
+            <label><%=weekdays[day]%></label>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                <i class="dropdown icon"></i>
+                <div class="default text">From</div>
+                <div class="menu">
+                    <div class="item" data-value="9">9:00 AM</div>
+                    <div class="item" data-value="10">10:00 AM</div>
+                    <div class="item" data-value="11">11:00 AM</div>
+                    <div class="item" data-value="12">12:00 PM</div>
+                    <div class="item" data-value="13">1:00 PM</div>
+                    <div class="item" data-value="14">2:00 PM</div>
+                    <div class="item" data-value="15">3:00 PM</div>
+                    <div class="item" data-value="16">4:00 PM</div>
+                    <div class="item" data-value="17">5:00 PM</div>
+                    <div class="item" data-value="18">6:00 PM</div>
+                    <div class="item" data-value="19">7:00 PM</div>
+                    <div class="item" data-value="20">8:00 PM</div>
+                    <div class="item" data-value="21">9:00 PM</div>
+                </div>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                <i class="dropdown icon"></i>
+                <div class="default text">To</div>
+                <div class="menu">
+                    <div class="item" data-value="9">9:00 AM</div>
+                    <div class="item" data-value="10">10:00 AM</div>
+                    <div class="item" data-value="11">11:00 AM</div>
+                    <div class="item" data-value="12">12:00 PM</div>
+                    <div class="item" data-value="13">1:00 PM</div>
+                    <div class="item" data-value="14">2:00 PM</div>
+                    <div class="item" data-value="15">3:00 PM</div>
+                    <div class="item" data-value="16">4:00 PM</div>
+                    <div class="item" data-value="17">5:00 PM</div>
+                    <div class="item" data-value="18">6:00 PM</div>
+                    <div class="item" data-value="19">7:00 PM</div>
+                    <div class="item" data-value="20">8:00 PM</div>
+                    <div class="item" data-value="21">9:00 PM</div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <% } %>
+        <h3 class="ui dividing header">How Many Hours They Can Work</h3>
+        <div class="fields">
+            <div class="field">
+                <label>Minimum Hours</label>
+                <input type="text" name="employee[hours][min]">
+            </div>
+            <div class="field">
+                <label>Maximum Hours</label>
+                <input type="text" name="employee[hours][max]">
+            </div>
+        </div>
+        <input class="ui violet basic button" type="submit">
+    </form>
+</div>
+
+<script>$('.ui.dropdown')
+        .dropdown();
+</script>
+<% include ./partials/footer %>

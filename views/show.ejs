@@ -1,0 +1,45 @@
+<<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= employee.name %></div>
+    <div class="ui top attached">
+        <div class="content">
+            <div class="summary">
+                <ul>
+                    <%for (let prop in employee.positions) { %>
+                        <%if (employee.positions.hasOwnProperty(prop)) {%>
+                            <li><%= prop %></li>
+                        <% }} %>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+            <div class="summary">
+                <ul>
+                    <li>Monday: <%= employee.availability.monday[0] %> - <%= employee.availability.monday[1] %></li>
+                    <li>Tuesday: <%= employee.availability.tuesday[0] %> - <%= employee.availability.tuesday[1] %></li>
+                    <li>Wednesday: <%= employee.availability.wednesday[0] %> - <%= employee.availability.wednesday[1] %></li>
+                    <li>Thursday: <%= employee.availability.thursday[0] %> - <%= employee.availability.thursday[1] %></li>
+                    <li>Friday: <%= employee.availability.friday[0] %> - <%= employee.availability.friday[1] %></li>
+                    <li>Saturday: <%= employee.availability.saturday[0] %> - <%= employee.availability.saturday[1] %></li>
+                    <li>Sunday: <%= employee.availability.sunday[0] %> - <%= employee.availability.sunday[1] %></li>
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+                <div class="summary">
+                    <ul>
+                        <li>Hours Worked: <%= employee.hours.current %></li>
+                        <li>Minimum Hours: <%= employee.hours.min %></li>
+                        <li>Maximum Hours: <%= employee.hours.max %></li>
+                    </ul>
+                </div>
+            </div>
+        <a class="ui orange basic button" href="/employees/<%= employee._id %>/edit">Edit</a>
+        <form id="delete" action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
+            <button class="ui red basic button">Delete</button>
+        </form>
+    </div>
+</div>
+<% include ./partials/footer %>
+
