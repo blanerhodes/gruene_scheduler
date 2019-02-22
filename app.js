@@ -47,6 +47,16 @@ app.get("/employees", (req, res) => {
         if(err) {
             console.log(err);
         } else {
+            res.render("employees", {employees:employees});
+        }
+    })
+});
+
+app.get("/schedule", (req, res) => {
+    Employee.find({}, (err, employees) => {
+        if(err) {
+            console.log(err);
+        } else {
             res.render("schedule", {employees:employees});
         }
     })
@@ -70,7 +80,7 @@ app.post("/employees", (req, res) => {
     })
 });
 
-//SHOW ROUTE
+//SHOW Employee ROUTE
 app.get("/employees/:id", (req, res) => {
     Employee.findById(req.params.id, (err, foundEmp) => {
         if(err) {
@@ -82,7 +92,7 @@ app.get("/employees/:id", (req, res) => {
     }) 
  });
 
-//EDIT ROUTE
+//EDIT Employee ROUTE
 app.get("/employees/:id/edit", (req, res) => {
     Employee.findById(req.params.id, (err, foundEmp) => {
         if(err){
@@ -93,7 +103,7 @@ app.get("/employees/:id/edit", (req, res) => {
     })
 });
 
-//UPDATE ROUTE
+//UPDATE Employee ROUTE
 app.put("/employees/:id", (req, res) => {
     req.body.employee.body = req.sanitize(req.body.employee.body);
     Employee.findByIdAndUpdate(req.params.id, req.body.employee, (err, updatedEmp) => {
@@ -106,7 +116,7 @@ app.put("/employees/:id", (req, res) => {
     })
 })
 
-//DELETE ROUTE
+//DELETE Employee ROUTE
 app.delete("/employees/:id", (req, res) => {
     Employee.findByIdAndRemove(req.params.id, (err) => {
         if(err){
@@ -118,6 +128,12 @@ app.delete("/employees/:id", (req, res) => {
     })
 })
 
+
+//BAND ROUTING
+//new employee form
+app.get("/employees/new", (req,res) => {
+    res.render("newEmp");
+});
 
 
 

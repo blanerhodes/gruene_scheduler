@@ -1,5 +1,4 @@
 <% include ./partials/header %>
-<!-- NEED TO MAKE SURE ALL OF THE NAMING IS CORRECT FOR DATABASE PUSH -->
 <div class="ui main text container segment">
     <div class="ui huge header">New Employee</div>
     <form class="ui form" action="/employees" method="POST">
@@ -9,16 +8,16 @@
         </div>
         <h3 class="ui dividing header">Positions They Can Work</h3>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][bottle]">
-                  <label>Bottle</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][bottle]">
+                <label>Bottle</label>
+            </div>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][bartender]" >
-                  <label>Bartender</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][bartender]" >
+                <label>Bartender</label>
+            </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
@@ -50,6 +49,18 @@
         <div class="fields">
             <div class="field">
             <label><%=weekdays[day]%></label>
+            <div class="inline field">
+                <div class="ui radio checkbox">
+                    <input type="checkbox" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                    <label>Unavailable</label>
+                </div>
+            </div>
+            <div class="inline field">
+                <div class="ui radio checkbox">
+                    <input type="checkbox" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                    <label>Full Availability</label>
+                </div>
+            </div>
             <div class="ui selection dropdown">
                 <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
                 <i class="dropdown icon"></i>

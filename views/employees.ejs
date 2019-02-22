@@ -1,0 +1,37 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui top attached">
+    <div class="content">
+        <div class="summary">
+            <h4 class="ui sub header">Employees, Update Preferences/Availabilty if Necessary</h4>
+            <div class="ui link list">
+                <% employees.forEach( (employee) => { %>
+                    <li><a class="item" href="/employees/<%= employee._id %>"><%= employee.name %></a></li>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+<div class="ui main text container segment">
+    <div class="ui top attached">
+    <div class="content">
+        <div class="summary">
+            <h4 class="ui sub header">Bands, Update if Necessary</h4>
+            <div class="ui link list">
+                <% employees.forEach( (employee) => { %>
+                    <li><a class="item" href="/employees/<%= employee._id %>"><%= employee.name %></a></li>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<button class="ui primary button" onclick="window.location='/employees/new';">Add New Employee</button>
+<button class="ui primary button" onclick="window.location='/employees/new';">Bands</button>
+<button class="ui primary button" onclick="window.location='/schedule';">Go to Schedule</button>
+
+<!-- make sure to put an "are you sure" prompt -->
+<button class="ui primary button" onclick="window.location='/schedule';">Generate Schedule</button>
+<% include ./partials/header %>

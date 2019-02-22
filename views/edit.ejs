@@ -1,4 +1,5 @@
 <% include ./partials/header %>
+
 <div class="ui main text container segment">
     <div class="ui huge header">Edit <%=employee.name %></div>
     <form class="ui form" action="/employees/<%= employee._id %>?_method=PUT" method="POST">
@@ -8,38 +9,38 @@
         </div>
         <h3 class="ui dividing header">Positions They Can Work</h3>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][bottle] <%= employee.positions.bottle ? "checked" : "" %>>
-                  <label>Bottle</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][bartender]" <%= employee.positions.bottle ? "checked" : "" %>>
+                <label>Bottle</label>
+            </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][bartender]" <%= employee.positions.bottle ? "checked" : "" %>>
+                  <input type="checkbox" name="employee[positions][bartender]" <%= employee.positions.bartender ? "checked" : "" %>>
                   <label>Bartender</label>
                 </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][headBartender]">
+                  <input type="checkbox" name="employee[positions][headBartender]" <%= employee.positions.headBartender ? "checked" : "" %>>
                   <label>Head Bartender</label>
                 </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][opener]">
+                  <input type="checkbox" name="employee[positions][opener]" <%= employee.positions.opener ? "checked" : "" %>>
                   <label>Opener</label>
                 </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][door]">
+                  <input type="checkbox" name="employee[positions][door]" <%= employee.positions.door ? "checked" : "" %>>
                   <label>Door</label>
                 </div>
         </div>
         <div class="inline field">
                 <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][manager]">
+                  <input type="checkbox" name="employee[positions][manager]" <%= employee.positions.manager ? "checked" : "" %>>
                   <label>Manager</label>
                 </div>
         </div>
@@ -49,11 +50,33 @@
         <div class="fields">
             <div class="field">
             <label><%=weekdays[day]%></label>
-            <%=$('#from').dropdown('set value', employee.availability[weekdays[day]][0]); %>
-            <div id="from" class="ui selection dropdown">
+
+            <div class="inline fields">
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (Number(employee.availability[weekdays[day].toLowerCase()][0])==0) ? "checked" : "" %>>
+                    <label>Unavailable</label>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui checkbox">
+                    <input type="checkbox" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (Number(employee.availability[weekdays[day].toLowerCase()][0])==1) ? "checked" : "" %>>
+                    <label>Full Availability</label>
+                </div>
+            </div>
+            </div>
+
+            <div class="ui selection dropdown">
                 <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
                 <i class="dropdown icon"></i>
-                <div class="default text">From</div>
+                <div class="text">
+                    <% let availDayFirst = Number(employee.availability[weekdays[day].toLowerCase()][0]); %>
+                    <% if(availDayFirst <= 12 && availDayFirst > 1) { %>
+                        <%= availDayFirst + ":00 AM" %>
+                    <% } else if(availDayFirst > 12) { %>
+                        <%= (availDayFirst-12) + ":00 PM" %>
+                    <% } %>
+                </div>
                 <div class="menu">
                     <div class="item" data-value="9">9:00 AM</div>
                     <div class="item" data-value="10">10:00 AM</div>
@@ -70,11 +93,17 @@
                     <div class="item" data-value="21">9:00 PM</div>
                 </div>
             </div>
-            <%=$('#to').dropdown('set value', employee.availability[weekdays[day]][0]); %>
-            <div id="to" class="ui selection dropdown">
+            <div class="ui selection dropdown">
                 <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
                 <i class="dropdown icon"></i>
-                <div class="default text">To</div>
+                <div class="text">
+                    <% let availDayLast = Number(employee.availability[weekdays[day].toLowerCase()][1]); %>
+                    <% if(availDayLast <= 12 && availDayLast >1) { %>
+                        <%= availDayLast + ":00 AM" %>
+                    <% } else if(availDayLast > 12) { %>
+                        <%= (availDayLast-12) + ":00 PM" %>
+                    <% } %>
+                </div>
                 <div class="menu">
                     <div class="item" data-value="9">9:00 AM</div>
                     <div class="item" data-value="10">10:00 AM</div>
@@ -109,6 +138,5 @@
     </form>
 </div>
 
-<script>$('.ui.dropdown')
-        .dropdown();
+<script>$('.ui.dropdown').dropdown();
 </script>
