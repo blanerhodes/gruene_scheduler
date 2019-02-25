@@ -13,7 +13,7 @@
                     <%for (let prop in employee.positions) { %>
                         <%if (employee.positions.hasOwnProperty(prop) && prop != "$init") {%>
                             <% if(employee.positions[prop].canWork === "on") { %>
-                                <li><%= capFirstLetter(prop.toLowerCase()) %></li>
+                                <li><%= capFirstLetter(prop.toLowerCase()) %> | Competency: <%= employee.positions[prop].competency %></li>
                             <% } %>
                         <% }} %>
                 </ul>
