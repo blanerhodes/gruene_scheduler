@@ -10,39 +10,127 @@
         <h3 class="ui dividing header">Positions They Can Work</h3>
         <div class="inline field">
             <div class="ui checkbox">
-                <input type="checkbox" name="employee[positions][bartender]" <%= employee.positions.bottle ? "checked" : "" %>>
+                <input type="checkbox" name="employee[positions][bottle][canWork]" <%= employee.positions.bottle.canWork ? "checked" : "" %>>
                 <label>Bottle</label>
             </div>
+            <% function showCompetency(role){ %>
+                <% let comp = Number(employee.positions[role].competency); %>
+                <option value="<%= comp %>" selected = "selected"><%= comp %></option>    
+            <% } %>
+            <select class="ui selection dropdown" name="employee[positions][bottle][competency]">    
+                <% showCompetency("bottle") %>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][bartender]" <%= employee.positions.bartender ? "checked" : "" %>>
-                  <label>Bartender</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][bartender][canWork]" <%= employee.positions.bartender.canWork ? "checked" : "" %>>
+                <label>Bartender</label>
+            </div>  
+            <select class="ui selection dropdown" name="employee[positions][bartender][competency]">    
+                    <% showCompetency("bartender") %>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][headBartender]" <%= employee.positions.headBartender ? "checked" : "" %>>
-                  <label>Head Bartender</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][headBartender]" <%= employee.positions.headBartender.canWork ? "checked" : "" %>>
+                <label>Head Bartender</label>
+            </div>
+            <select class="ui selection dropdown" name="employee[positions][headBartender][competency]">    
+                    <% showCompetency("headBartender") %>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][opener]" <%= employee.positions.opener ? "checked" : "" %>>
-                  <label>Opener</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][opener]" <%= employee.positions.opener.canWork ? "checked" : "" %>>
+                <label>Opener</label>
+            </div>
+            <select class="ui selection dropdown" name="employee[positions][opener][competency]">    
+                    <% showCompetency("opener") %>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][door]" <%= employee.positions.door ? "checked" : "" %>>
-                  <label>Door</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][door]" <%= employee.positions.door.canWork ? "checked" : "" %>>
+                <label>Door</label>
+            </div>
+            <select class="ui selection dropdown" name="employee[positions][door][competency]">    
+                    <% showCompetency("door") %>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][manager]" <%= employee.positions.manager ? "checked" : "" %>>
-                  <label>Manager</label>
-                </div>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][manager]" <%= employee.positions.manager.canWork ? "checked" : "" %>>
+                <label>Manager</label>
+            </div>
+            <select class="ui selection dropdown" name="employee[positions][manager][competency]">    
+                    <% showCompetency("manager") %>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <h3 class="ui dividing header">Availability</h3>
         <% let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]; %>
@@ -50,76 +138,70 @@
         <div class="fields">
             <div class="field">
             <label><%=weekdays[day]%></label>
-
             <div class="inline fields">
             <div class="field">
-                <div class="ui checkbox">
-                    <input type="checkbox" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (Number(employee.availability[weekdays[day].toLowerCase()][0])==0) ? "checked" : "" %>>
+                <div class="ui radio checkbox avail_<%=weekdays[day].toLowerCase()%>">
+                    <input type="radio" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (employee.availability[weekdays[day].toLowerCase()][0]==="0") ? "checked" : "" %>>
                     <label>Unavailable</label>
                 </div>
             </div>
             <div class="field">
-                <div class="ui checkbox">
-                    <input type="checkbox" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (Number(employee.availability[weekdays[day].toLowerCase()][0])==1) ? "checked" : "" %>>
+                <div class="ui radio checkbox avail_<%=weekdays[day].toLowerCase()%>">
+                    <input type="radio" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (employee.availability[weekdays[day].toLowerCase()][0]==="1") ? "checked" : "" %>>
                     <label>Full Availability</label>
                 </div>
             </div>
-            </div>
-
-            <div class="ui selection dropdown">
-                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                <i class="dropdown icon"></i>
-                <div class="text">
-                    <% let availDayFirst = Number(employee.availability[weekdays[day].toLowerCase()][0]); %>
-                    <% if(availDayFirst <= 12 && availDayFirst > 1) { %>
-                        <%= availDayFirst + ":00 AM" %>
-                    <% } else if(availDayFirst > 12) { %>
-                        <%= (availDayFirst-12) + ":00 PM" %>
-                    <% } %>
-                </div>
-                <div class="menu">
-                    <div class="item" data-value="9">9:00 AM</div>
-                    <div class="item" data-value="10">10:00 AM</div>
-                    <div class="item" data-value="11">11:00 AM</div>
-                    <div class="item" data-value="12">12:00 PM</div>
-                    <div class="item" data-value="13">1:00 PM</div>
-                    <div class="item" data-value="14">2:00 PM</div>
-                    <div class="item" data-value="15">3:00 PM</div>
-                    <div class="item" data-value="16">4:00 PM</div>
-                    <div class="item" data-value="17">5:00 PM</div>
-                    <div class="item" data-value="18">6:00 PM</div>
-                    <div class="item" data-value="19">7:00 PM</div>
-                    <div class="item" data-value="20">8:00 PM</div>
-                    <div class="item" data-value="21">9:00 PM</div>
+            <div class="field">
+                <div class="ui radio checkbox">
+                    <input type="radio" name="employee[availability][<%=weekdays[day].toLowerCase()%>]" <%= (employee.availability[weekdays[day].toLowerCase()][0]!=="1" && employee.availability[weekdays[day].toLowerCase()][0]!=="0") ? "checked" : "" %>>
+                    <label>Partial Availability</label>
                 </div>
             </div>
-            <div class="ui selection dropdown">
-                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                <i class="dropdown icon"></i>
-                <div class="text">
-                    <% let availDayLast = Number(employee.availability[weekdays[day].toLowerCase()][1]); %>
+            </div>
+            <select class="ui selection dropdown times_<%=weekdays[day].toLowerCase()%>" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                <% let availDayFirst = Number(employee.availability[weekdays[day].toLowerCase()][1]); %>
+                <% if(availDayFirst <= 12 && availDayFirst > 1) { %>
+                    <option value="<%= availDayFirst %>" selected = "selected"><%= availDayFirst + ":00 AM" %></option>    
+                <% } else if(availDayFirst > 12) { %>
+                    <option value="<%= availDayFirst %>" selected = "selected"><%= (availDayFirst-12) + ":00 PM" %></option>    
+                <% } %>
+                <option>None Selected</option>
+                <option value="9">9:00 AM</option>
+                <option value="10">10:00 AM</option>
+                <option value="11">11:00 AM</option>
+                <option value="12">12:00 PM</option>
+                <option value="13">1:00 PM</option>
+                <option value="14">2:00 PM</option>
+                <option value="15">3:00 PM</option>
+                <option value="16">4:00 PM</option>
+                <option value="17">5:00 PM</option>
+                <option value="18">6:00 PM</option>
+                <option value="19">7:00 PM</option>
+                <option value="20">8:00 PM</option>
+                <option value="21">9:00 PM</option>
+            </select>
+            <select class="ui selection dropdown times_<%=weekdays[day].toLowerCase()%>" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                    <% let availDayLast = Number(employee.availability[weekdays[day].toLowerCase()][2]); %>
                     <% if(availDayLast <= 12 && availDayLast >1) { %>
-                        <%= availDayLast + ":00 AM" %>
+                        <option value="<%= availDayLast %>" selected = "selected"><%= availDayLast + ":00 AM" %></option>    
                     <% } else if(availDayLast > 12) { %>
-                        <%= (availDayLast-12) + ":00 PM" %>
+                        <option value="<%= availDayLast %>" selected = "selected"><%= (availDayLast-12) + ":00 PM" %></option>
                     <% } %>
-                </div>
-                <div class="menu">
-                    <div class="item" data-value="9">9:00 AM</div>
-                    <div class="item" data-value="10">10:00 AM</div>
-                    <div class="item" data-value="11">11:00 AM</div>
-                    <div class="item" data-value="12">12:00 PM</div>
-                    <div class="item" data-value="13">1:00 PM</div>
-                    <div class="item" data-value="14">2:00 PM</div>
-                    <div class="item" data-value="15">3:00 PM</div>
-                    <div class="item" data-value="16">4:00 PM</div>
-                    <div class="item" data-value="17">5:00 PM</div>
-                    <div class="item" data-value="18">6:00 PM</div>
-                    <div class="item" data-value="19">7:00 PM</div>
-                    <div class="item" data-value="20">8:00 PM</div>
-                    <div class="item" data-value="21">9:00 PM</div>
-                </div>
-            </div>
+                    <option>None Selected</option>
+                    <option value="9">9:00 AM</option>
+                    <option value="10">10:00 AM</option>
+                    <option value="11">11:00 AM</option>
+                    <option value="12">12:00 PM</option>
+                    <option value="13">1:00 PM</option>
+                    <option value="14">2:00 PM</option>
+                    <option value="15">3:00 PM</option>
+                    <option value="16">4:00 PM</option>
+                    <option value="17">5:00 PM</option>
+                    <option value="18">6:00 PM</option>
+                    <option value="19">7:00 PM</option>
+                    <option value="20">8:00 PM</option>
+                    <option value="21">9:00 PM</option>
+            </select>
             </div>
         </div>
         <% } %>
@@ -138,5 +220,22 @@
     </form>
 </div>
 
-<script>$('.ui.dropdown').dropdown();
+<script>$('.ui.dropdown').dropdown();</script>
+
+<script>let weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+function makeHandler(day) {
+    return function(event){
+        $('.times_' + day).dropdown('clear');
+    }
+}
+for(var day=0; day<weekdays.length; day++){
+    console.log(".avail_" + weekdays[day]);
+    $('.avail_' + weekdays[day]).on("click", makeHandler(weekdays[day]));
+};
+            // $('body').on('change', '.times_' + day, function() {
+            //     $('.avail_' + day).removeAttr('checked');
+            // });
 </script>
+
+
+<% include ./partials/footer %>

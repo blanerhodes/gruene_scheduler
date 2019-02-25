@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const employeeSchema = new mongoose.Schema({
     name: String,
     positions: {
-        bottle: String,
-        bartender: String,
-        door: String,
-        opener: String,
-        headBartender: String,
-        manager: String
+        bottle: {canWork: String, competency: String},
+        bartender: {canWork: String, competency: String},
+        door: {canWork: String, competency: String},
+        opener: {canWork: String, competency: String},
+        headBartender: {canWork: String, competency: String},
+        manager: {canWork: String, competency: String}
     },
     availability: {
         monday: [String],
@@ -23,7 +23,8 @@ const employeeSchema = new mongoose.Schema({
         current: Number,
         max: Number,
         min: Number
-    }
+    },
+    vacation: [String]
 });
 
 module.exports = mongoose.model("Employee", employeeSchema);

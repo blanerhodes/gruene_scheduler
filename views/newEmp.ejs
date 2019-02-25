@@ -9,39 +9,146 @@
         <h3 class="ui dividing header">Positions They Can Work</h3>
         <div class="inline field">
             <div class="ui checkbox">
-                <input type="checkbox" name="employee[positions][bottle]">
+                <input type="checkbox" name="employee[positions][bottle][canWork]">
                 <label>Bottle</label>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][bottle][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
+                </div>
+            </div>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][bartender][canWork]" >
+                <label>Bartender</label>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][bartender][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
+                </div>
+            </div>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone, above 7 means they can close alone."><i class="question circle icon"></i></span>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][headBartender][canWork]">
+                <label>Head Bartender</label>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][headBartender][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
+                </div>
+            </div>
+            <span data-tooltip="A competency above 5 means they can handle a standard shift, above 7 can handle a busy shift."><i class="question circle icon"></i></span>
+        </div>
+        <div class="inline field">
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][opener][canWork]">
+                <label>Opener</label>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][opener][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
+                </div>
             </div>
         </div>
         <div class="inline field">
             <div class="ui checkbox">
-                <input type="checkbox" name="employee[positions][bartender]" >
-                <label>Bartender</label>
+                <input type="checkbox" name="employee[positions][door][canWork]">
+                <label>Door</label>
             </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][door][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
+                </div>
+            </div>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift."><i class="question circle icon"></i></span>
         </div>
         <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][headBartender]">
-                  <label>Head Bartender</label>
+            <div class="ui checkbox">
+                <input type="checkbox" name="employee[positions][manager][canWork]">
+                <label>Manager</label>
+            </div>
+            <div class="ui selection dropdown">
+                <input type="hidden" name="employee[positions][manager][competency]">
+                <i class="dropdown icon"></i>
+                <div class="default text">Competency</div>
+                <div class="menu">
+                    <div class="item" data-value="1">1</div>
+                    <div class="item" data-value="2">2</div>
+                    <div class="item" data-value="3">3</div>
+                    <div class="item" data-value="4">4</div>
+                    <div class="item" data-value="5">5</div>
+                    <div class="item" data-value="6">6</div>
+                    <div class="item" data-value="7">7</div>
+                    <div class="item" data-value="8">8</div>
+                    <div class="item" data-value="9">9</div>
+                    <div class="item" data-value="10">10</div>
                 </div>
-        </div>
-        <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][opener]">
-                  <label>Opener</label>
-                </div>
-        </div>
-        <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][door]">
-                  <label>Door</label>
-                </div>
-        </div>
-        <div class="inline field">
-                <div class="ui checkbox">
-                  <input type="checkbox" name="employee[positions][manager]">
-                  <label>Manager</label>
-                </div>
+            </div>
+            <span data-tooltip="A competency above 5 means they can handle a busy shift alone."><i class="question circle icon"></i></span>
         </div>
         <h3 class="ui dividing header">Availability</h3>
         <% let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]; %>
@@ -49,61 +156,59 @@
         <div class="fields">
             <div class="field">
             <label><%=weekdays[day]%></label>
-            <div class="inline field">
-                <div class="ui radio checkbox">
-                    <input type="checkbox" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                    <label>Unavailable</label>
+            <div class="inline fields">
+            <div class="field">
+                    <div class="ui radio checkbox avail_<%=weekdays[day].toLowerCase()%>">
+                        <input type="radio" value="0" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                        <label>Unavailable</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox avail_<%=weekdays[day].toLowerCase()%>">
+                        <input type="radio" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                        <label>Full Availability</label>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="ui radio checkbox">
+                        <input type="radio" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                        <label>Partial Availability</label>
+                    </div>
+                </div>
+                </div>
+                <select class="ui selection dropdown times_<%=weekdays[day].toLowerCase()%>" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                    <option value="9">9:00 AM</option>
+                    <option value="10">10:00 AM</option>
+                    <option value="11">11:00 AM</option>
+                    <option value="12">12:00 PM</option>
+                    <option value="13">1:00 PM</option>
+                    <option value="14">2:00 PM</option>
+                    <option value="15">3:00 PM</option>
+                    <option value="16">4:00 PM</option>
+                    <option value="17">5:00 PM</option>
+                    <option value="18">6:00 PM</option>
+                    <option value="19">7:00 PM</option>
+                    <option value="20">8:00 PM</option>
+                    <option value="21">9:00 PM</option>
+                </select>
+                <select class="ui selection dropdown times_<%=weekdays[day].toLowerCase()%>" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
+                        <option value="9">9:00 AM</option>
+                        <option value="10">10:00 AM</option>
+                        <option value="11">11:00 AM</option>
+                        <option value="12">12:00 PM</option>
+                        <option value="13">1:00 PM</option>
+                        <option value="14">2:00 PM</option>
+                        <option value="15">3:00 PM</option>
+                        <option value="16">4:00 PM</option>
+                        <option value="17">5:00 PM</option>
+                        <option value="18">6:00 PM</option>
+                        <option value="19">7:00 PM</option>
+                        <option value="20">8:00 PM</option>
+                        <option value="21">9:00 PM</option>
+                </select>
                 </div>
             </div>
-            <div class="inline field">
-                <div class="ui radio checkbox">
-                    <input type="checkbox" value="1" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                    <label>Full Availability</label>
-                </div>
-            </div>
-            <div class="ui selection dropdown">
-                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                <i class="dropdown icon"></i>
-                <div class="default text">From</div>
-                <div class="menu">
-                    <div class="item" data-value="9">9:00 AM</div>
-                    <div class="item" data-value="10">10:00 AM</div>
-                    <div class="item" data-value="11">11:00 AM</div>
-                    <div class="item" data-value="12">12:00 PM</div>
-                    <div class="item" data-value="13">1:00 PM</div>
-                    <div class="item" data-value="14">2:00 PM</div>
-                    <div class="item" data-value="15">3:00 PM</div>
-                    <div class="item" data-value="16">4:00 PM</div>
-                    <div class="item" data-value="17">5:00 PM</div>
-                    <div class="item" data-value="18">6:00 PM</div>
-                    <div class="item" data-value="19">7:00 PM</div>
-                    <div class="item" data-value="20">8:00 PM</div>
-                    <div class="item" data-value="21">9:00 PM</div>
-                </div>
-            </div>
-            <div class="ui selection dropdown">
-                <input type="hidden" name="employee[availability][<%=weekdays[day].toLowerCase()%>]">
-                <i class="dropdown icon"></i>
-                <div class="default text">To</div>
-                <div class="menu">
-                    <div class="item" data-value="9">9:00 AM</div>
-                    <div class="item" data-value="10">10:00 AM</div>
-                    <div class="item" data-value="11">11:00 AM</div>
-                    <div class="item" data-value="12">12:00 PM</div>
-                    <div class="item" data-value="13">1:00 PM</div>
-                    <div class="item" data-value="14">2:00 PM</div>
-                    <div class="item" data-value="15">3:00 PM</div>
-                    <div class="item" data-value="16">4:00 PM</div>
-                    <div class="item" data-value="17">5:00 PM</div>
-                    <div class="item" data-value="18">6:00 PM</div>
-                    <div class="item" data-value="19">7:00 PM</div>
-                    <div class="item" data-value="20">8:00 PM</div>
-                    <div class="item" data-value="21">9:00 PM</div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <% } %>
+            <% } %>
         <h3 class="ui dividing header">How Many Hours They Can Work</h3>
         <div class="fields">
             <div class="field">
@@ -119,7 +224,17 @@
     </form>
 </div>
 
-<script>$('.ui.dropdown')
-        .dropdown();
+<script>$('.ui.dropdown').dropdown();
+$('.question.circle.icon').popup({on: 'focus'});
+let weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+function makeHandler(day) {
+    return function(event){
+        $('.times_' + day).dropdown('clear');
+    }
+}
+for(var day=0; day<weekdays.length; day++){
+    console.log(".avail_" + weekdays[day]);
+    $('.avail_' + weekdays[day]).on("click", makeHandler(weekdays[day]));
+};
 </script>
 <% include ./partials/footer %>

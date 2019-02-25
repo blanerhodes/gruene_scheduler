@@ -12,7 +12,7 @@
                 <ul>
                     <%for (let prop in employee.positions) { %>
                         <%if (employee.positions.hasOwnProperty(prop) && prop != "$init") {%>
-                            <% if(employee.positions[prop] === "on") { %>
+                            <% if(employee.positions[prop].canWork === "on") { %>
                                 <li><%= capFirstLetter(prop.toLowerCase()) %></li>
                             <% } %>
                         <% }} %>
@@ -33,7 +33,9 @@
                             <li><%= capFirstLetter(prop) %>: Fully Available</li>
                         <% } else { %>
                             <% empAvail[prop].forEach(function(element) { %>
-                                <% if(Number(element) <= 12) { %>
+                                <% if(element === "on") { %>
+                                    <% return; %>
+                                <% } else if(Number(element) <= 12) { %>
                                     <% hoursArray.push(element + "AM"); %>
                                 <% } else { %>
                                     <% hoursArray.push((Number(element)-12) + "PM"); %>
@@ -63,5 +65,8 @@
         <a class="ui black basic button" href="/employees">Go Back</a>
     </div>
 </div>
+
+<% console.log(employee.positions.bartender[0]) %>
+
 <% include ./partials/footer %>
 
