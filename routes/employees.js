@@ -54,6 +54,19 @@ router.get("/employees/:id/edit", (req, res) => {
     })
 });
 
+//EDIT Employee Vacation ROUTE
+router.get("/employees/:id/vacation", (req, res) => {
+    Employee.findById(req.params.id, (err, foundEmp) => {
+        if(err){
+            res.redirect("/employees");
+        } else {
+            res.render("vacation", {employee: foundEmp});
+        }
+    })
+});
+
+
+
 //UPDATE Employee ROUTE
 router.put("/employees/:id", (req, res) => {
     req.body.employee.body = req.sanitize(req.body.employee.body);

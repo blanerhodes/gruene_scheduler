@@ -1,0 +1,26 @@
+<% include ./partials/header %>
+
+<!-- variables for day logic -->
+<% let weekObject = weeks[0]._doc; %> 
+<% let weekObjKeys = Object.keys(weekObject); %>
+<% let weekDays = ['monday', 'tuesday', 'wednesday', 'thursday']; %>
+<% let weekendDays = ['friday', 'saturday', 'sunday']; %>
+<% let dayArray=[];%>
+<!-- loop that designates what days are busy and what to do with a busy/standard day -->
+<% for(let prop=0; prop<weekObjKeys.length; prop++){ %>
+    <!-- if statement to split weekdays vs weekends -->
+    <% if(weekDays.includes(weekObjKeys[prop])) { %>
+         <%console.log(weekObjKeys[prop] + ' is a week day'); %>
+    <% } else if(weekendDays.includes(weekObjKeys[prop])){ %>
+        <%console.log(weekObjKeys[prop] + ' is a weekend day'); %>
+        <% } %> 
+    <% } %>
+
+
+
+
+
+<script>
+$('.ui.dropdown').dropdown();
+</script>
+<% include ./partials/footer %>

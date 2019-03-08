@@ -6,7 +6,7 @@
             <h4 class="ui sub header">Employees, Update Preferences/Availabilty if Necessary</h4>
             <div class="ui link list">
                 <% employees.forEach( (employee) => { %>
-                    <li><a class="item" href="/employees/<%= employee._id %>"><%= employee.name %></a></li>
+                    <li><span class="ui large black text"><a class="item" href="/employees/<%= employee._id %>"><%= employee.name %></a></span></li>
                 <% }) %>
             </div>
         </div>
@@ -14,24 +14,51 @@
     </div>
 </div>
 <div class="ui main text container segment">
-    <div class="ui top attached">
-    <div class="content">
-        <div class="summary">
-            <h4 class="ui sub header">Bands, Update if Necessary</h4>
-            <div class="ui link list">
-                <% employees.forEach( (employee) => { %>
-                    <li><a class="item" href="/employees/<%= employee._id %>"><%= employee.name %></a></li>
-                <% }) %>
+        <form class="ui form" action="/week" method="POST">
+            <div class="ui top attached">
+            <div class="content">
+                <div class="summary">
+                    <h4 class="ui sub header">Mark Day Template to Use</h4>
+                    <div class="inline fields">
+                    <% let weekdays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]; %>
+                    <% for(let day=0; day<weekdays.length; day++){ %>
+                        <% if(day<6) { %>
+                            <div class="field">
+                                <label><%= weekdays[day] %></label>
+                                <select class="ui selection dropdown" name="week[<%= weekdays[day].toLowerCase() %>][degOfBusy]">
+                                    <option value="0">Standard</option>
+                                    <option value="1">Busy</option>
+                                </select>
+                            </div>
+                        <% } else { %>
+                            <div class="field">
+                                <label><%= weekdays[day] %></label>
+                                <select class="ui selection dropdown" name="week[<%= weekdays[day].toLowerCase() %>][degOfBusy]">
+                                    <option value="0">Standard</option>
+                                    <option value="1">Busy</option>
+                                    <option value="2">Brunch</option>
+                                </select>
+                            </div>
+                        <% } %>
+                    <% } %>
+                    </div>
+                </div>
             </div>
-        </div>
+            </div>
+            <input class="ui violet basic button" type="submit">
+        </form>
     </div>
-    </div>
-</div>
+
+
 
 <button class="ui primary button" onclick="window.location='/employees/new';">Add New Employee</button>
 <button class="ui primary button" onclick="window.location='/employees/new';">Bands</button>
-<button class="ui primary button" onclick="window.location='/schedule';">Go to Schedule</button>
+<button class="ui primary button" onclick="window.location='/schedule';">Go to Schedule Creation</button>
 
 <!-- make sure to put an "are you sure" prompt -->
 <button class="ui primary button" onclick="window.location='/schedule';">Generate Schedule</button>
+
+<script>
+$('.ui.dropdown').dropdown();
+</script>
 <% include ./partials/header %>

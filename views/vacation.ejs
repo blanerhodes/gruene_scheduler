@@ -1,0 +1,74 @@
+<% include ./partials/header %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header">Edit <%=employee.name %>'s Vacation</div>
+    <div class="field"> 
+        <div class="ui calendar" id="date_calendar">
+            <label>Add a Vacation Request</label>
+            <div class="ui input left icon">
+                <i class="calendar icon"></i>
+                <input type="text" placeholder="Date/Time" id="dateSelected">
+            </div>
+        </div>
+    </div>
+    <button class="ui secondary button" id="add_Date">Add Date</button>
+</div>  
+
+<div class="ui main text container segment">   
+    <form class="ui form" action="/employees/<%= employee._id %>?_method=PUT" method="POST" id="date_form">
+    <div class="ui small header">Current Vacation Requests</div>
+    <div class="fields">
+    <% for (let date=0; date<employee.vacation.length-1; date++){ %>
+        <div class="field">
+            <div class="ui mini input">
+                <input type="text" name="employee[vacation]" value="<%= employee.vacation[date] %>">
+            </div>
+            <button class="small ui red basic button remove">Remove Date</button>
+        </div>
+    <% } %> 
+    </div>
+        <input class="ui violet basic button" type="submit" id="submit">      
+    </form>
+</div>
+
+<script>
+    
+    $('#date_calendar')
+  .calendar({
+    type: 'date',
+    formatter: {
+      date: function (date, settings) {
+      if (!date) return '';
+      var day = date.getDate();
+      var month = date.getMonth() + 1;
+      var year = date.getFullYear();
+      return month + '/' + day + '/' + year;
+    }
+  }})
+;
+
+    $('document').ready(function(){
+        $('#add_Date').click(function(){
+            var input = $(`
+            <div class="field">
+                <div class="ui mini input">
+                    <input type="text" name="employee[vacation]" id="test">
+                </div>
+                <button class="small ui red basic button remove">Remove Date</button>
+            </div>
+            `);  
+            $('#submit').before(input);
+            $(`#test`).val($(`#dateSelected`).val(), function(){
+                $(`#dateSelected`).val("");
+                $(`#dateSelected`).text("");
+            });
+            
+        });
+        });
+        $(".remove").on("click", function() {
+            $(this).parent().remove();
+        });
+        $('form').append('<input type="hidden" name="employee[vacation]" value="">');
+</script>
+
+<% include ./partials/footer %>

@@ -58,15 +58,24 @@
                 </ul>
             </div>
         </div>
-        <a class="ui orange basic button" href="/employees/<%= employee._id %>/edit">Edit</a>
+        <h3 class="ui dividing header">Current Vacation Requests</h3>
+        <ul>
+        <% if(employee.vacation.length===1) { %>
+            <li>None</li>
+        <% } else { %>
+            <% for (let date=0; date<employee.vacation.length-1; date++){ %>
+                    <li><%= employee.vacation[date] %></li>
+            <% } %> 
+        <% } %>    
+        </ul>   
+        <a class="ui orange basic button" href="/employees/<%= employee._id %>/edit">Edit General Information</a>
+        <a class="ui blue basic button" href="/employees/<%= employee._id %>/vacation">Edit Vacation Dates</a>
         <form id="delete" action="/employees/<%= employee._id %>?_method=DELETE" method="POST">
             <button class="ui red basic button">Delete</button>
         </form>
         <a class="ui black basic button" href="/employees">Go Back</a>
     </div>
 </div>
-
-<% console.log(employee.positions.bartender[0]) %>
 
 <% include ./partials/footer %>
 

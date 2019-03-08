@@ -220,21 +220,25 @@
     </form>
 </div>
 
-<script>$('.ui.dropdown').dropdown();</script>
+<script>$('.ui.dropdown').dropdown();
 
-<script>let weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+let weekdays = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 function makeHandler(day) {
     return function(event){
         $('.times_' + day).dropdown('clear');
     }
 }
 for(var day=0; day<weekdays.length; day++){
-    console.log(".avail_" + weekdays[day]);
     $('.avail_' + weekdays[day]).on("click", makeHandler(weekdays[day]));
 };
-            // $('body').on('change', '.times_' + day, function() {
-            //     $('.avail_' + day).removeAttr('checked');
-            // });
+
+const select = document.querySelector(".times_monday");
+const checkboxes = document.querySelectorAll('.avail_monday');
+
+function handleDropdownChange() {
+  checkboxes.forEach(checkbox => (checkbox.checked = false));
+}
+
 </script>
 
 

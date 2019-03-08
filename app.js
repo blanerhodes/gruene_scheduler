@@ -5,7 +5,10 @@ mongoose       = require("mongoose"),
 sanitizer      = require("express-sanitizer"),
 methodOverride = require("method-override"),
 Employee       = require("./models/employee"),
-employeeRoutes = require("./routes/employees")
+Week           = require("./models/week"),
+employeeRoutes = require("./routes/employees"),
+scheduleRoutes = require("./routes/schedule")
+moment         = require("moment")
 ;
 
 //app config     
@@ -16,25 +19,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
 app.use(sanitizer());
 
-//landing index
-app.get("/schedule", (req, res) => {
-    Employee.find({}, (err, employees) => {
-        if(err) {
-            console.log(err);
-        } else {
-            res.render("schedule", {employees:employees});
-        }
-    })
-});
-
-
 //BAND ROUTING
 //new employee form
-app.get("/employees/new", (req,res) => {
-    res.render("newEmp");
-});
+// app.get("/employees/new", (req,res) => {
+//     res.render("newEmp");
+// });
 
 app.use(employeeRoutes);
+app.use(scheduleRoutes);
 
 app.listen(3000, ()=> {
     console.log("SCHEDULE SERVER STARTED");
